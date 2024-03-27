@@ -18,8 +18,9 @@ public class BahasaPage {
 
     //Locator Element
 
-    @FindBy(xpath = "")
+    @FindBy(linkText= "Bahasa")
     private WebElement halamanBahasa;
+//    blockUI blockOverlay
 
     @FindBy(xpath = "//span[normalize-space()='Tambah Baru']")
     private WebElement btnTambahBaru;

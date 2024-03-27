@@ -9,9 +9,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BahasaTest {
@@ -33,10 +37,12 @@ public class BahasaTest {
     public void User_berada_di_halaman_Bahasa(){
         driver.get("http://akademik-ba.kemhan.go.id/");
         loginPage.formLogin();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        bahasaPage.clickHalamanBahasa();
+        DriverSingleton.delay(15);
+        WebElement Bahasa = driver.findElement(By.xpath(""));
+        Bahasa.click();
         extentTest.log(LogStatus.PASS,"User berada di halaman Bahasa");
     }
+
 
     @When("User klik button tambah baru")
     public void User_klik_button_tambah_baru(){
@@ -68,6 +74,7 @@ public class BahasaTest {
         Assert.assertEquals(bahasaPage.GetTxtValidasiSearch(),"Bahasa Testing");
         extentTest.log(LogStatus.PASS,"User berhasil menemukan bahasa yang baru ditambahkan");
     }
+
 
 
 
