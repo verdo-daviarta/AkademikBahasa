@@ -48,7 +48,7 @@ public class Hooks {
 
     @AfterAll
     public static void finish(){
-        DriverSingleton.delay(3);
+//        DriverSingleton.delay(3);
         DriverSingleton.closeObjectInstance();
     }
 }

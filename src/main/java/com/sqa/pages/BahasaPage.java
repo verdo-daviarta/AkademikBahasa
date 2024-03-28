@@ -3,6 +3,7 @@ package com.sqa.pages;
 import com.sqa.drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -18,7 +19,7 @@ public class BahasaPage {
 
     //Locator Element
 
-    @FindBy(linkText= "Bahasa")
+    @FindBy(linkText= "//a[normalize-space()='Bahasa']")
     private WebElement halamanBahasa;
 //    blockUI blockOverlay
 
@@ -31,8 +32,8 @@ public class BahasaPage {
     @FindBy(xpath = "//span[@id='select2-desc-ou-container']")
     private WebElement Deskripsi;
 
-    @FindBy(name = "//input[@value='Simpan']")
-    private WebElement btnSimpan;
+    @FindBy(xpath="(//input[@value='Simpan'])[1]")
+    @CacheLookup private WebElement btnSimpan;
 
     @FindBy(xpath = "//input[@type='search']")
     private WebElement ColoumnSearch;
@@ -55,7 +56,8 @@ public class BahasaPage {
         select.selectByValue("KIBI");
     }
 
-    public void clickBtnSimpan(){btnSimpan.click();}
+    public void clickBtnSimpan(){
+        btnSimpan.click();}
 
     public void inputSearch(String ColoumnSearch){this.ColoumnSearch.sendKeys(ColoumnSearch);}
 
