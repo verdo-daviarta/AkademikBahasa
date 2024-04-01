@@ -30,3 +30,12 @@ Feature: Proses Tambah baru Bahasa
     And User klik button simpan
     Then User berhasil mendapatkan daftar yang sudah diubah
 
+  @positif-Hapus
+  Scenario: User berhasil melakukan hapus Bahasa
+    Given User memilih data yang ingin diubah
+    When User klik button delete
+    And User klik button iya
+    Then User berhasil menghapus bahasa
+
+
+

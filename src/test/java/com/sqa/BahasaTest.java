@@ -161,5 +161,18 @@ public class BahasaTest {
     }
 
 
+//-----------5-------------
+
+    @When("User klik button delete")
+    public void userKlikButtonDelete() {
+    }
+
+    @And("User klik button iya")
+    public void userKlikButtonIya() {
+    }
+
+    @Then("User berhasil menghapus bahasa")
+    public void userBerhasilMenghapusBahasa() {
+    }
 
 }
