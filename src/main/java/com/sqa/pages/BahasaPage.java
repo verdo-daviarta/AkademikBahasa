@@ -1,6 +1,7 @@
 package com.sqa.pages;
 
 import com.sqa.drivers.DriverSingleton;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -41,6 +42,17 @@ public class BahasaPage {
     @FindBy(xpath = "//*[@id='tableBahasas']/tbody/tr")
     private WebElement ValidasiPencarian;
 
+    @FindBy(xpath = "//*[@id='tableBahasas_wrapper']/div[1]/button[2]")
+    private WebElement exportPdf;
+
+    @FindBy(xpath = "//*[@id='tableBahasas_wrapper']/div[1]/button[1]")
+    private WebElement exportExcel;
+
+    @FindBy(xpath = "//form[@id='delete_156']//i[@class='fa fa-edit']")
+    private WebElement btnEdit;
+
+    @FindBy(xpath = "//form[@id='delete_156']//i[@class='fa fa-trash']")
+    private WebElement btnHapus;
 
 
 //----------------------------------------------------------------------
@@ -50,6 +62,12 @@ public class BahasaPage {
     public void clickBtnTambah(){btnTambahBaru.click();}
 
     public void inputBahasa(String JenisBahasa){this.JenisBahasa.sendKeys(JenisBahasa);}
+
+    public void editInputBahasa(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", JenisBahasa);
+        JenisBahasa.sendKeys("Bahasa Testing Edit 2");
+    }
 
     public void pilihDeskripsi(){
         Select select = new Select(Deskripsi);
@@ -63,8 +81,11 @@ public class BahasaPage {
 
     public String GetTxtValidasiSearch(){return ValidasiPencarian.getText();}
 
+    public void clickEksporPdf(){exportPdf.click();}
 
+    public void clickEksporExcel(){exportExcel.click();}
 
+    public void clickBtnEdit(){btnEdit.click();}
 
 }
 //*[@id="select2-desc-1l-container"]
