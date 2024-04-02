@@ -1,10 +1,13 @@
 package com.sqa.pages;
 
 import com.sqa.drivers.DriverSingleton;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class KursusPage {
 
@@ -28,6 +31,29 @@ public class KursusPage {
 
     @FindBy(xpath = "//span[@id='select2-bahasa_id-79-container']")
     private WebElement pilihBahasa;
+
+    @FindBy(xpath = "//span[@id='select2-tingkat-pd-container']")
+    private WebElement pilihTingkat;
+
+    @FindBy(xpath = "//textarea[@name='desc']")
+    private WebElement inputNamaKursus;
+
+    @FindBy(xpath = "//input[@name='judul[]']")
+    private WebElement inputSubjekMapel;
+
+    @FindBy(xpath = "//input[@name='total_jam[]']")
+    private WebElement inputTotalJam;
+
+    @FindBy(xpath="(//input[@value='Simpan'])[1]")
+    @CacheLookup
+    private WebElement btnSimpan;
+
+    public void clickHalamanKursus(){halamanKursus.click();}
+
+    public void clickTambah(){btnTambahBaru.click();}
+
+    public void inputNamaKursus(String inputNama){this.inputNama.sendKeys(inputNama);}
+
 
 
 
