@@ -55,7 +55,7 @@ public class BahasaTest {
     @And("User input jenis bahasa yang ingin dibuat")
     public void User_input_jenis_bahasa_yang_ingin_dibuat() throws InterruptedException {
         Thread.sleep(3000);
-        bahasaPage.inputBahasa("Bahasa Testing");
+        bahasaPage.inputBahasa("Bahasa Testing 2");
         extentTest.log(LogStatus.PASS,"User input jenis bahasa yang ingin dibuat");
     }
 
@@ -78,8 +78,8 @@ public class BahasaTest {
     @Then("User berhasil menemukan bahasa yang baru ditambahkan")
     public void User_berhasil_menemukan_bahasa_yang_baru_ditambahkan() throws InterruptedException {
         Thread.sleep(3000);
-        bahasaPage.inputSearch("Bahasa Testing");
-        Assert.assertEquals(bahasaPage.GetTxtValidasiSearch(),"1 Bahasa Testing KIBI 28 Maret 2024");
+        bahasaPage.inputSearch("Bahasa Testing 2");
+        Assert.assertTrue(bahasaPage.GetTxtValidasiSearch().contains("Bahasa Testing 2 KIBI 2 April 2024"));
         extentTest.log(LogStatus.PASS,"User berhasil menemukan bahasa yang baru ditambahkan");
     }
 
@@ -125,7 +125,7 @@ public class BahasaTest {
         WebElement Bahasa = driver.findElement(By.xpath("//a[normalize-space()='Bahasa']"));
         Bahasa.click();
         Thread.sleep(3000);
-        bahasaPage.inputSearch("Bahasa TestingBahasa Testing Edit");
+        bahasaPage.inputSearch("Bahasa Testing 2");
         extentTest.log(LogStatus.PASS,"User memilih data yang ingin diubah");
     }
 
@@ -164,15 +164,24 @@ public class BahasaTest {
 //-----------5-------------
 
     @When("User klik button delete")
-    public void userKlikButtonDelete() {
+    public void userKlikButtonDelete() throws InterruptedException {
+        Thread.sleep(3000);
+        bahasaPage.clickBtnHapus();
+        extentTest.log(LogStatus.PASS,"User klik button delete");
     }
 
     @And("User klik button iya")
-    public void userKlikButtonIya() {
+    public void userKlikButtonIya() throws InterruptedException {
+        Thread.sleep(3000);
+        bahasaPage.clickBtnIya();
+        extentTest.log(LogStatus.PASS,"User klik button iya");
     }
 
     @Then("User berhasil menghapus bahasa")
-    public void userBerhasilMenghapusBahasa() {
+    public void userBerhasilMenghapusBahasa() throws InterruptedException {
+        Thread.sleep(3000);
+        Assert.assertTrue(bahasaPage.GetTxtSuccessHapus().contains("Bahasa berhasil diperbarui"));
+        extentTest.log(LogStatus.PASS,"User berhasil menghapus bahasa");
     }
 
 }

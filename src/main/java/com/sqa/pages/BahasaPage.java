@@ -22,7 +22,6 @@ public class BahasaPage {
 
     @FindBy(linkText= "//a[normalize-space()='Bahasa']")
     private WebElement halamanBahasa;
-//    blockUI blockOverlay
 
     @FindBy(xpath = "//span[normalize-space()='Tambah Baru']")
     private WebElement btnTambahBaru;
@@ -51,8 +50,15 @@ public class BahasaPage {
     @FindBy(xpath = "//form[@id='delete_156']//i[@class='fa fa-edit']")
     private WebElement btnEdit;
 
-    @FindBy(xpath = "//form[@id='delete_156']//i[@class='fa fa-trash']")
+    @FindBy(xpath = "//*[@id='delete_159']/div/button")
     private WebElement btnHapus;
+
+    @FindBy(xpath = "//button[normalize-space()='Iya']")
+    private WebElement btnIya;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement TxtalertSuccessDelete;
+
 
 
 //----------------------------------------------------------------------
@@ -86,6 +92,12 @@ public class BahasaPage {
     public void clickEksporExcel(){exportExcel.click();}
 
     public void clickBtnEdit(){btnEdit.click();}
+
+    public void clickBtnHapus(){btnHapus.click();}
+
+    public void clickBtnIya(){btnIya.click();}
+
+    public String GetTxtSuccessHapus(){return TxtalertSuccessDelete.getText();}
 
 }
 //*[@id="select2-desc-1l-container"]
