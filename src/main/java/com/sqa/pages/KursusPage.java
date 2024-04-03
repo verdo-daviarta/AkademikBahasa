@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.sql.Struct;
+
 public class KursusPage {
 
     private WebDriver driver;
@@ -42,7 +44,7 @@ public class KursusPage {
     private WebElement inputSubjekMapel;
 
     @FindBy(xpath = "//input[@name='total_jam[]']")
-    private WebElement inputTotalJam;
+    private WebElement totalJam;
 
     @FindBy(xpath="(//input[@value='Simpan'])[1]")
     @CacheLookup
@@ -54,6 +56,9 @@ public class KursusPage {
 
     public void inputNamaKursus(String inputNama){this.inputNama.sendKeys(inputNama);}
 
+    public void inputMataPelajaran(String inputSubjekMapel){this.inputSubjekMapel.sendKeys(inputSubjekMapel);}
+
+    public void inputTotalJam(String totalJam){this.totalJam.sendKeys(totalJam);}
 
 
 
