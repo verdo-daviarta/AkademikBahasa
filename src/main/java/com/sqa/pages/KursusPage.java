@@ -60,6 +60,8 @@ public class KursusPage {
 
     public void inputTotalJam(String totalJam){this.totalJam.sendKeys(totalJam);}
 
+    public void clickBtnSimpan(){
+        btnSimpan.click();}
 
 
 }
