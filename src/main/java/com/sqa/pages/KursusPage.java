@@ -54,9 +54,11 @@ public class KursusPage {
 
     public void clickTambah(){btnTambahBaru.click();}
 
-    public void inputNamaKursus(String inputNama){this.inputNama.sendKeys(inputNama);}
+    public void inputNama(String inputNama){this.inputNama.sendKeys(inputNama);}
 
     public void inputMataPelajaran(String inputSubjekMapel){this.inputSubjekMapel.sendKeys(inputSubjekMapel);}
+
+    public void inputNamaKursus(String inputNamaKursus){this.inputNamaKursus.sendKeys(inputNamaKursus);}
 
     public void inputTotalJam(String totalJam){this.totalJam.sendKeys(totalJam);}
 

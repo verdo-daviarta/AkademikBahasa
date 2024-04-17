@@ -4,7 +4,7 @@ Feature: Proses Tambah baru Kursus
   Scenario: User berhasil menambahkan Kursus baru
     Given User berada di halaman Kursus
     When User klik button tambah baru
-    And User input kursus yang ingin dibuat
+    And User input Nama
     And User memilih Bahasa
     And User memilih tingkat
     And User input nama Kursus

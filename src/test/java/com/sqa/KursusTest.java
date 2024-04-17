@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class KursusTest {
     private static WebDriver driver;
@@ -43,24 +44,42 @@ public class KursusTest {
         extentTest.log(LogStatus.PASS,"User klik button tambah baru");
     }
 
-    @And("User input kursus yang ingin dibuat")
-    public void userInputKursusYangInginDibuat() {
+    @And("User input Nama")
+    public void User_input_Nama()throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.inputNama("Testing SQA");
+        extentTest.log(LogStatus.PASS,"User input Nama");
     }
 
     @And("User memilih Bahasa")
-    public void userMemilihBahasa() {
+    public void userMemilihBahasa() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement dropdownElement = driver.findElement(By.xpath("//span[@id='select2-bahasa_id-0o-container']"));
+        Select dropdown = new Select(dropdownElement);
+        dropdown.selectByValue("158");
+        extentTest.log(LogStatus.PASS,"User memilih Bahasa");
     }
 
     @And("User memilih tingkat")
-    public void userMemilihTingkat() {
+    public void userMemilihTingkat() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement dropdownTingkat = driver.findElement(By.xpath("//span[@id='select2-tingkat-pd-container']"));
+        Select dropdown = new Select(dropdownTingkat);
+        dropdown.selectByValue("1");
+        extentTest.log(LogStatus.PASS,"User memilih tingkat");
     }
 
     @And("User input nama Kursus")
-    public void userInputNamaKursus() {
+    public void userInputNamaKursus() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.inputNamaKursus("Testing Nama Kursus SQA");
+        extentTest.log(LogStatus.PASS,"User input nama Kursus");
     }
 
     @And("User input nama Mata Pelajaran")
     public void userInputNamaMataPelajaran() {
+
+
     }
 
     @And("User input total jam")
