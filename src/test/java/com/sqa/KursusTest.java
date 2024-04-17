@@ -77,13 +77,17 @@ public class KursusTest {
     }
 
     @And("User input nama Mata Pelajaran")
-    public void userInputNamaMataPelajaran() {
-
-
+    public void userInputNamaMataPelajaran() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.inputMataPelajaran("MapelTesting");
+        extentTest.log(LogStatus.PASS,"User input nama Mata Pelajaran");
     }
 
     @And("User input total jam")
-    public void userInputTotalJam() {
+    public void userInputTotalJam() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.inputTotalJam(12);
+        extentTest.log(LogStatus.PASS,"User input total jam");
     }
 
     @And("User klik button simpan")
