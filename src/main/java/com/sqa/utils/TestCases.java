@@ -2,7 +2,7 @@ package com.sqa.utils;
 
 public enum TestCases {
 
-    T1("user berhasil login dengan username dan password yang valid");
+    T1("User berhasil menambahkan Kursus baru");
 
 
     private String testCaseName;

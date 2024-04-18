@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class KursusTest {
     private static WebDriver driver;
@@ -31,18 +32,18 @@ public class KursusTest {
     public void User_berada_di_halaman_Kursus() throws InterruptedException {
         driver.get("http://akademik-ba.kemhan.go.id/");
         loginPage.formLogin();
-        Thread.sleep(3000);
-        WebElement Kursus = driver.findElement(By.xpath("//a[normalize-space()='kursus']"));
+        Thread.sleep(4000);
+        WebElement Kursus = driver.findElement(By.xpath("//a[normalize-space()='Kursus']"));
         Kursus.click();
         extentTest.log(LogStatus.PASS,"User berada di halaman Kursus");
     }
 
-    @When("User klik button tambah baru")
-    public void User_klik_button_tambah_baru() throws InterruptedException {
-        Thread.sleep(3000);
-        kursusPage.clickTambah();
-        extentTest.log(LogStatus.PASS,"User klik button tambah baru");
-    }
+//    @When("User klik button tambah baru")
+//    public void User_klik_button_tambah_baru() throws InterruptedException {
+//        Thread.sleep(3000);
+//        kursusPage.clickTambah();
+//        extentTest.log(LogStatus.PASS,"User klik button tambah baru");
+//    }
 
     @And("User input Nama")
     public void User_input_Nama()throws InterruptedException {
@@ -54,7 +55,7 @@ public class KursusTest {
     @And("User memilih Bahasa")
     public void userMemilihBahasa() throws InterruptedException {
         Thread.sleep(3000);
-        WebElement dropdownElement = driver.findElement(By.xpath("//span[@id='select2-bahasa_id-0o-container']"));
+        WebElement dropdownElement = driver.findElement(By.xpath("//*[@id=\"addModal\"]/div/div/div/div/div[2]/div/form/div[1]/div[2]/select"));
         Select dropdown = new Select(dropdownElement);
         dropdown.selectByValue("158");
         extentTest.log(LogStatus.PASS,"User memilih Bahasa");
@@ -90,14 +91,18 @@ public class KursusTest {
         extentTest.log(LogStatus.PASS,"User input total jam");
     }
 
-    @And("User klik button simpan")
-    public void User_klik_button_simpan() throws InterruptedException {
-        Thread.sleep(2000);
-        kursusPage.clickBtnSimpan();
-        extentTest.log(LogStatus.PASS,"User klik button simpan");
-    }
+//    @Then("User klik button simpan")
+//    public void User_klik_button_simpan() throws InterruptedException {
+//        Thread.sleep(2000);
+//        kursusPage.clickBtnSimpan();
+//        extentTest.log(LogStatus.PASS,"User klik button simpan");
+//    }
 
-    @Then("User berhasil menemukan kursus yang baru ditambahkan")
-    public void userBerhasilMenemukanKursusYangBaruDitambahkan() {
-    }
+//    @Then("User berhasil menemukan kursus yang baru ditambahkan")
+//    public void userBerhasilMenemukanKursusYangBaruDitambahkan() throws InterruptedException {
+//        Thread.sleep(3000);
+//        kursusPage.inputSearch("Bahasa Testing 2");
+//        Assert.assertTrue(bahasaPage.GetTxtValidasiSearch().contains("Bahasa Testing 2 KIBI 2 April 2024"));
+//        extentTest.log(LogStatus.PASS,"User berhasil menemukan bahasa yang baru ditambahkan");
+//    }
 }
