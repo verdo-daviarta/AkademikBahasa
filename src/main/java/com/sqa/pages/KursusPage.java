@@ -50,6 +50,17 @@ public class KursusPage {
     @CacheLookup
     private WebElement btnSimpan;
 
+    @FindBy(xpath = "//input[@type='search']")
+    private WebElement ColoumnSearch;
+
+    @FindBy(xpath = "//*[@id=\"tableKursus_wrapper\"]")
+    private WebElement ValidasiPencarian;
+
+    @FindBy(xpath = "//span[normalize-space()='PDF']")
+    private WebElement exportPdf;
+
+
+
     public void clickHalamanKursus(){halamanKursus.click();}
 
     public void clickTambah(){btnTambahBaru.click();}
@@ -60,10 +71,17 @@ public class KursusPage {
 
     public void inputNamaKursus(String inputNamaKursus){this.inputNamaKursus.sendKeys(inputNamaKursus);}
 
-    public void inputTotalJam(int totalJam){this.totalJam.sendKeys(new CharSequence[]{});}
+    public void inputTotalJam(String inputTotalJam){this.totalJam.sendKeys(inputTotalJam);}
+
+    public void inputSearch(String ColoumnSearch){this.ColoumnSearch.sendKeys(ColoumnSearch);}
+
+    public String GetTxtValidasiSearch(){return ValidasiPencarian.getText();}
+
+    public void clickEksporPdf(){exportPdf.click();}
 
     public void clickBtnSimpan(){
         btnSimpan.click();}
+
 
 
 }

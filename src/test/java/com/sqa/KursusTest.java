@@ -64,7 +64,7 @@ public class KursusTest {
     @And("User memilih tingkat")
     public void userMemilihTingkat() throws InterruptedException {
         Thread.sleep(3000);
-        WebElement dropdownTingkat = driver.findElement(By.xpath("//span[@id='select2-tingkat-pd-container']"));
+        WebElement dropdownTingkat = driver.findElement(By.xpath("//*[@id=\"addModal\"]/div/div/div/div/div[2]/div/form/div[1]/div[3]/select"));
         Select dropdown = new Select(dropdownTingkat);
         dropdown.selectByValue("1");
         extentTest.log(LogStatus.PASS,"User memilih tingkat");
@@ -87,22 +87,31 @@ public class KursusTest {
     @And("User input total jam")
     public void userInputTotalJam() throws InterruptedException {
         Thread.sleep(3000);
-        kursusPage.inputTotalJam(12);
+        kursusPage.inputTotalJam("12");
         extentTest.log(LogStatus.PASS,"User input total jam");
     }
 
-//    @Then("User klik button simpan")
-//    public void User_klik_button_simpan() throws InterruptedException {
-//        Thread.sleep(2000);
-//        kursusPage.clickBtnSimpan();
-//        extentTest.log(LogStatus.PASS,"User klik button simpan");
-//    }
+    @Then("User berhasil menemukan kursus yang baru ditambahkan")
+    public void userBerhasilMenemukanKursusYangBaruDitambahkan() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.inputSearch("Testing SQA");
+        Assert.assertTrue(kursusPage.GetTxtValidasiSearch().contains("Testing SQA"));
+        extentTest.log(LogStatus.PASS,"User berhasil menemukan kursus yang baru ditambahkan");
+    }
 
-//    @Then("User berhasil menemukan kursus yang baru ditambahkan")
-//    public void userBerhasilMenemukanKursusYangBaruDitambahkan() throws InterruptedException {
-//        Thread.sleep(3000);
-//        kursusPage.inputSearch("Bahasa Testing 2");
-//        Assert.assertTrue(bahasaPage.GetTxtValidasiSearch().contains("Bahasa Testing 2 KIBI 2 April 2024"));
-//        extentTest.log(LogStatus.PASS,"User berhasil menemukan bahasa yang baru ditambahkan");
-//    }
+
+//------------------------------------------------------------------------------------
+
+    @When("User klik button PDF di halaman kursus")
+    public void userKlikButtonPDFDiHalamanKursus() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.clickEksporPdf();
+        extentTest.log(LogStatus.PASS,"User klik button PDF di halaman kursus");
+    }
+
+
+
+
+
+
 }
