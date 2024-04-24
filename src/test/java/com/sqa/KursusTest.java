@@ -109,9 +109,12 @@ public class KursusTest {
         extentTest.log(LogStatus.PASS,"User klik button PDF di halaman kursus");
     }
 
-
-
-
+    @When("User klik button Ekspor di halaman Kursus")
+    public void userKlikButtonEksporDiHalamanKursus() throws InterruptedException {
+        Thread.sleep(3000);
+        kursusPage.clickEksporExcel();
+        extentTest.log(LogStatus.PASS,"User klik button Ekspor di halaman Kursus");
+    }
 
 
 }

@@ -59,6 +59,8 @@ public class KursusPage {
     @FindBy(xpath = "//span[normalize-space()='PDF']")
     private WebElement exportPdf;
 
+    @FindBy(xpath = "//span[normalize-space()='Ekspor']")
+    private WebElement exportExcel;
 
 
     public void clickHalamanKursus(){halamanKursus.click();}
@@ -78,6 +80,8 @@ public class KursusPage {
     public String GetTxtValidasiSearch(){return ValidasiPencarian.getText();}
 
     public void clickEksporPdf(){exportPdf.click();}
+
+    public void clickEksporExcel(){exportExcel.click();}
 
     public void clickBtnSimpan(){
         btnSimpan.click();}

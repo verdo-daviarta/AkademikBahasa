@@ -18,3 +18,9 @@ Feature: Proses Tambah baru Kursus
     Given User berada di halaman Kursus
     When User klik button PDF di halaman kursus
     Then User berhasil mendapatkan daftar dalam bentuk pdf
+
+  @positif-EksporExcel
+  Scenario: User berhasil melakukan ekspor daftar dalam bentuk Excel
+    Given User berada di halaman Kursus
+    When User klik button Ekspor di halaman Kursus
+    Then User berhasil mendapatkan daftar dalam bentuk Excel

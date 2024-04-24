@@ -16,7 +16,7 @@ Feature: Proses Tambah baru Bahasa
     Then User berhasil mendapatkan daftar dalam bentuk pdf
 
   @positif-EksporExcel
-  Scenario: User berhasil melakukan ekspor daftar dalam bentuk pdf
+  Scenario: User berhasil melakukan ekspor daftar dalam bentuk Excel
     Given User berada di halaman Bahasa
     When User klik button Ekspor
     Then User berhasil mendapatkan daftar dalam bentuk Excel
