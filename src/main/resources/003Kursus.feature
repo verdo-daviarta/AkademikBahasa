@@ -24,3 +24,12 @@ Feature: Proses Tambah baru Kursus
     Given User berada di halaman Kursus
     When User klik button Ekspor di halaman Kursus
     Then User berhasil mendapatkan daftar dalam bentuk Excel
+
+  @positif-Edit
+  Scenario: User berhasil melakukan edit Kursus
+    Given User memilih kursus yang ingin diubah
+    When User klik button ubah pada kursus
+    And User ubah nama kursus
+    And User ubah deskripsi
+    And User klik button simpan
+    Then User berhasil mendapatkan daftar yang sudah diubah
